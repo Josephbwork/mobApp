@@ -1,0 +1,64 @@
+Create a New Ionic app
+For this project I need to make 
+(Home- already generates creating app)
+Settings Page
+Countries Page
+News Page
+Weather Page
+
+There might be something else, but for now, that is all I can see being required. 
+
+Settings Page:
+I need to import all standalone components; ion list, ion label etc. 
+Shortcuts on VS let me click the errors on html and see the imports show in the .ts files component imports. 
+
+Home Page:
+First, I look for the icon in the ionions page as this stood out to me as something I was unsure of. 
+https://ionic.io/ionicons 
+I found it in the list as 
+<ion-icon name=“settings-outline”></ion-icon>
+I then imported IonIcon to .ts page import and component
+Going to router link this icon now 
+- need to figure this out and come back to it
+
+(home.page.html)
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>G00411344</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-icon name=“settings-outline”></ion-icon>
+      <ion-button [[routerLink]="['/settings']">Settings</ion-button>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <strong>Ready to create an app?</strong>
+    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  </div>
+</ion-content>
+
+(home.page.ts)
+
+import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { IonIcon, IonHeader, IonToolbar, IonTitle, IonContent, IonButton} from '@ionic/angular/standalone';
+
+@Component({
+  selector: 'app-home',
+  templateUrl: 'home.page.html',
+  styleUrls: ['home.page.scss'],
+  imports: [IonIcon, IonHeader, IonToolbar, IonTitle, IonContent, RouterLink, IonButton ],
+})
+export class HomePage {
+  constructor() {}
+}
+
+
+
+
+
