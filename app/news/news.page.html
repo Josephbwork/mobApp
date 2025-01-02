@@ -1,6 +1,20 @@
- <ion-header>
- <ion-toolbar>
-    <ion-title>News in</ion-title>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>News for {{country}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/home']" slot="icon-only">
+        <ion-icon name="earth-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
+<ion-content [fullscreen]="true">
+  <ion-card *ngFor="let n of newsInfo">
+    <img src="{{n.image_url}}" />
+    <ion-card-header>
+      <ion-card-title>{{n.title}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content> {{n.description}} </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -6,22 +6,25 @@ import { ServicesMyDataService } from '../services-my-data.service';
 import { ServicesMyHttpService } from '../services-my-http.service';
 import { HttpOptions } from '@capacitor/core';
 import { Router , RouterLink } from '@angular/router'
-import { count } from 'rxjs';
+
 
 @Component({
   selector: 'app-countries',
   templateUrl: './countries.page.html',
   styleUrls: ['./countries.page.scss'],
   standalone: true,
-  imports: [IonButton, IonCardContent, IonCardSubtitle, IonCardTitle, IonCardHeader, IonCard, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, RouterLink]
+  imports: [IonButton, IonCardContent, IonCardTitle, IonCardHeader, IonCard, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, RouterLink, FormsModule]
 })
-export class CountriesPage implements OnInit {
 
+export class CountriesPage implements OnInit {
+ 
   countryName:string = "";
   countryInfo!:any;
   options: HttpOptions = {
     url: "https://restcountries.com/v3.1/name/"
   }
+
+country: any;
 
   constructor(private router: Router, private ds:ServicesMyDataService, private mhs:ServicesMyHttpService) {}
 
@@ -36,5 +39,12 @@ export class CountriesPage implements OnInit {
     this.countryInfo = result.data
     console.log(JSON.stringify(this.countryInfo))
   }
+ 
+ async openNews(country: any) {
+  await this.ds.set("cca2", country.cca2); 
 
+  console.log(this.ds.get('cca2'))
+  this.router.navigate(['/news'])
+  }
+  
 }
