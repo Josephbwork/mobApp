@@ -43,5 +43,3 @@ export class SettingsPage implements OnInit {
       console.log("Unit saved is", this.selectedUnit)
     }
   }
-
-  //Todo: need to call in weather when weather is built

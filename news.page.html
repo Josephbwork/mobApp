@@ -10,7 +10,14 @@
   </ion-toolbar>
 </ion-header>
 
+<!--No news message if no news-->
+<ion-card *ngIf="noNews">
+  <ion-card-header>
+  <ion-card-title>{{noNews}}</ion-card-title></ion-card-header>
+</ion-card>
+
 <ion-content [fullscreen]="true">
+
   <ion-card *ngFor="let n of newsInfo">
     <img src="{{n.image_url}}" />
     <ion-card-header>

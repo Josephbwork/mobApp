@@ -6,6 +6,14 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardHeader, Io
 import { HttpOptions } from '@capacitor/core';
 import { ServicesMyDataService } from '../services-my-data.service';
 import { ServicesMyHttpService } from '../services-my-http.service';
+import { addIcons } from 'ionicons';
+import { settingsOutline, earthOutline } from 'ionicons/icons';
+
+addIcons({
+  'settings-outline': settingsOutline,
+  'earth-outline': earthOutline,
+});
+
 
 @Component({
   selector: 'app-weather',
@@ -46,7 +54,7 @@ export class WeatherPage implements OnInit {
       if (latlng && latlng.length === 2) { //Make sure latlng has 2 elements
       const [lat, lon] = latlng;
 
-      //Weather API URL with the lat/lng and selected unit (Using openweathermap.org)
+      //Weather api url with the lat/lng and selected unit (Using openweathermap.org)
       this.options.url = `${this.options.url}lat=${lat}&lon=${lon}&units=${this.unit}&appid=${this.apiKey}`;
   
       await this.getWeatherInfo(); //Get weatherinfo and display

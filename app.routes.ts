@@ -26,4 +26,9 @@ export const routes: Routes = [
     path: 'weather',
     loadComponent: () => import('./weather/weather.page').then( m => m.WeatherPage)
   },
+  {
+    path: 'gitlink',
+    loadComponent: () => import('./gitlink/gitlink.page').then( m => m.GitlinkPage)
+  },
+
 ];

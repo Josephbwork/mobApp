@@ -6,7 +6,7 @@ import { Router, RouterLink } from '@angular/router'
 import { addIcons } from 'ionicons';
 import { settingsOutline, earthOutline } from 'ionicons/icons';
 
-//To do:put icons as its own service to call from if needed on all pages
+//I had made a seperate page for icons, but the template worked the same without the additional page so I left it out.
 addIcons({
   'settings-outline': settingsOutline,
   'earth-outline': earthOutline,
