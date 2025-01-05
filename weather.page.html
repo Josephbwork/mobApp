@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <!--Dynamically display capital name -->
+    <ion-title>Weather for {{capital}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/home']" slot="icon-only">
+        <ion-icon name="earth-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!--Display weather info if weatherinfo.main exists-->
+  <ion-card *ngIf="weatherInfo.main">
+    <!--Display icon if weatherIconUrl is available-->
+    <img *ngIf="weatherIconUrl" [src]="weatherIconUrl" alt="Weather Icon" />
+    <ion-card-header>
+      <ion-card-title>{{weatherInfo.weather[0].description}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>{{weatherInfo.main.temp}} {{unit}}</ion-card-content>
+  </ion-card>
+</ion-content>

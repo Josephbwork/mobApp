@@ -1,0 +1,25 @@
+
+<!--I used ion-icons to find the icon options and method to use within title.
+    Used the settings outline as required. 
+    Reference: https://ionic.io/ionicons?_gl= 
+  -->
+
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> G00411344 </ion-title>
+    <ion-buttons slot="end">
+      <!-- Settings icon displayed inside the button -->
+      <ion-button [routerLink]="['/settings']" slot="icon-only">
+        <ion-icon name="settings-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+ <ion-input label="Enter Country" placeholder="Country name" [(ngModel)]="countryName"></ion-input>
+  </ion-item>
+ <ion-button (click)="openCountries()">Search</ion-button>
+</ion-content>
